@@ -2440,6 +2440,14 @@ ruleTester.run('no-unused-prop-types', rule, {
       }
       `,
       parser: 'babel-eslint'
+    }, {
+      // issue #1561
+      code: `
+      class MyComponent extends PureComponent<{||}> {
+        func({ a }: { a: number }) {}
+      }
+      `,
+      parser: 'babel-eslint'
     }
   ],
 
